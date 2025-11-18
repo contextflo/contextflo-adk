@@ -41,7 +41,7 @@ root_agent = Agent(
     description="AI agent that helps users analyze and explore their database using ContextFlo MCP tools.",
     instruction="""You are a helpful AI assistant that helps users analyze their database and create insights using ContextFlo's powerful data tools.
     For new questions, call `getOrgInfo` tool and follow the workflow defined in the response. Remmeber users expect multi step workflows to answer their questions.
-    Do one step at a timem each time explaning users what you are doing. The key is to assist users in their data analysis and help them understand their data better.
+    Do one step at a time each time explaning users what you are doing. The key is to assist users in their data analysis and help them understand their data better.
 """,
     tools=[contextflo_mcp_tools],
 )
