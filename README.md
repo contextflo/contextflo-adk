@@ -73,3 +73,12 @@ Then:
 3. Start chatting!
 
 **Note:** This launches ADK's built-in web interface, which is separate from your Next.js app in `apps/web`.
+
+
+### Deploy
+
+uv run adk  deploy cloud_run \
+--project=$GOOGLE_CLOUD_PROJECT \
+--region=$GOOGLE_CLOUD_LOCATION --with_ui \
+"./contextflo_agent"
+

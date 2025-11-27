@@ -6,8 +6,8 @@ from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnecti
 
 
 # Get MCP server configuration from environment
-MCP_SERVER_URL = os.getenv("MCP_SERVER_URL", "http://localhost:3000/mcp")
-MCP_API_KEY = os.getenv("MCP_API_KEY")
+MCP_SERVER_URL = os.getenv("MCP_SERVER_URL", "https://mcp.contextflo.com/mcp")
+MCP_API_KEY = os.getenv("MCP_API_KEY", "access_1759770855998_vrsk3ylpzz")
 
 if not MCP_API_KEY:
     raise ValueError(
@@ -23,7 +23,6 @@ else:
 
 print(f"🔑 Using Bearer token authentication for {mcp_url}")
 
-# Create MCPToolset with Streamable HTTP connection to ContextFlo MCP Server
 contextflo_mcp_tools = MCPToolset(
     connection_params=StreamableHTTPConnectionParams(
         url=mcp_url,
@@ -46,3 +45,6 @@ root_agent = Agent(
     tools=[contextflo_mcp_tools],
 )
 
+from google.adk.apps.app import App
+
+app = App(root_agent=root_agent, name="contextflo_agent")
